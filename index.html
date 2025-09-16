@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rogue Tower - Phase 3.1</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #222;
+    }
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .button {
+      margin: 5px;
+      padding: 5px 10px;
+      background: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .button:hover {
+      background: #666;
+    }
+    #shop, #upgrades {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <strong>Build Towers:</strong><br>
+    <button class="button" onclick="placeTower('basic')">Basic</button>
+    <button class="button" onclick="placeTower('sniper')">Sniper</button>
+    <button class="button" onclick="placeTower('aoe')">AOE</button>
+    <button class="button" onclick="placeTower('slow')">Slow</button>
+    <button class="button" onclick="placeTower('poison')">Poison</button>
+    <div id="shop">
+      <strong>Shop:</strong>
+      <button class="button" onclick="buyUpgrade('range')">+Range (25g)</button>
+      <button class="button" onclick="buyUpgrade('damage')">+Damage (30g)</button>
+    </div>
+    <div id="upgrades"></div>
+    <div>
+      Gold: <span id="gold">100</span>
+      | Lives: <span id="lives">10</span>
+      | XP: <span id="xp">0</span>
+      | Level: <span id="level">1</span>
+    </div>
+  </div>
+  <canvas id="gameCanvas" width="480" height="640"></canvas>
+  <script src="game.js"></script>
+</body>
+</html>
